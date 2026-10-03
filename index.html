@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <canvas id="scene"></canvas>
+    <div id="canvas-container"></div>
 
     <div class="hud top-left">
       <div class="brand">AETHER / IMMERSION</div>
@@ -15,8 +15,20 @@
     </div>
 
     <div class="hud top-right">
-      <div class="chip">8K Zoom</div>
-      <div class="chip glow">Double Tap = Launch</div>
+      <div class="telemetry">
+        <div class="stat">
+          <span class="value" id="zoom-display">1.0x</span>
+          <span class="label">Zoom</span>
+        </div>
+        <div class="stat">
+          <span class="value" id="speed-display">0 km/s</span>
+          <span class="label">Speed</span>
+        </div>
+        <div class="stat">
+          <span class="value" id="distance-display">- km</span>
+          <span class="label">Distance</span>
+        </div>
+      </div>
     </div>
 
     <div class="panel">
@@ -26,9 +38,24 @@
         Deep-space intelligence mode. Double-tap the viewport or press launch to
         drift from the outer galaxy into a cinematic orbital view.
       </p>
-      <button id="launchButton">Launch</button>
+      <button id="launchButton" class="launch-btn">
+        <span>🚀</span>
+        <span>Launch Sequence</span>
+      </button>
     </div>
 
-    <script src="app.js"></script>
+    <div class="info-panel" id="infoPanel">
+      <h3 id="bodyName">Solar Object</h3>
+      <p id="bodyInfo">Type: Celestial Body</p>
+      <div id="bodyStats"></div>
+    </div>
+
+    <div class="immersion-indicator" id="immersionIndicator">
+      <div class="pulse"></div>
+      <span>ENTERING IMMERSION MODE</span>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="solar-system-3d.js"></script>
   </body>
 </html>
