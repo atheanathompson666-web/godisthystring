@@ -14,6 +14,14 @@ python3 -m http.server 8000
 
 Then open <http://localhost:8000>. The 3D scene uses Three.js from jsDelivr, so that part requires an internet connection and WebGL. The learning and calculator sections are plain HTML and JavaScript.
 
+## Tests
+
+Run the JavaScript tests with Node.js:
+
+```sh
+node --test
+```
+
 ## Notes
 
 - The scale illustrations and quark/gluon-to-element pairings are educational metaphors, not continuous physical simulation or a claim that particle physics causes geological processes.
