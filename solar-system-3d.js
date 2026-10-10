@@ -565,7 +565,16 @@ class SolarSystemScene {
   }
 
   onMouseWheel(event) {
+    if (!event || typeof event.deltaY !== 'number') {
+      return;
+    }
+
     event.preventDefault();
+
+    if (event.deltaY === 0) {
+      return;
+    }
+
     this.controls.targetZoom *= 1 + (event.deltaY > 0 ? 0.12 : -0.12);
     this.controls.targetZoom = Math.max(0.3, Math.min(8000, this.controls.targetZoom));
   }

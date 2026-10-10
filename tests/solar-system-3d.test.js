@@ -34,3 +34,18 @@ test('wheel zoom does not exceed its maximum', () => {
 
   assert.equal(scene.controls.targetZoom, 8000);
 });
+
+test('wheel zoom ignores zero-delta events', () => {
+  const scene = { controls: { targetZoom: 2.5 } };
+  let preventedDefault = false;
+
+  onMouseWheel.call(scene, {
+    deltaY: 0,
+    preventDefault() {
+      preventedDefault = true;
+    }
+  });
+
+  assert.equal(scene.controls.targetZoom, 2.5);
+  assert.equal(preventedDefault, true);
+});
